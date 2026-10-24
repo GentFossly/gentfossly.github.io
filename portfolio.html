@@ -355,26 +355,6 @@
       const previousMedia = document.getElementById('previousMedia');
       const nextMedia = document.getElementById('nextMedia');
 
-      const projects = [
-        {
-          title: 'Open Up',
-          subtitle: 'Artwork study',
-          cover: 'images/Open Up/GentFossly-OpenUp-open-image.jpeg',
-          media: [
-            {
-              type: 'image',
-              src: 'images/Open Up/GentFossly-OpenUp-open-image.jpeg',
-              alt: 'Open Up artwork, open'
-            },
-            {
-              type: 'image',
-              src: 'images/Open Up/GentFossly-OpenUp-Closed-image.jpeg',
-              alt: 'Open Up artwork, closed'
-            }
-          ]
-        }
-      ];
-
       let activeProject = null;
       let activeMediaIndex = 0;
       let lastFocusedElement = null;
@@ -382,9 +362,6 @@
       function createCard(project) {
         const article = document.createElement('article');
         article.className = 'card';
-        article.tabIndex = 0;
-        article.setAttribute('role', 'button');
-        article.setAttribute('aria-label', `View ${project.title} gallery`);
 
         const img = document.createElement('img');
         img.src = project.cover;
@@ -403,15 +380,37 @@
         caption.appendChild(subtitle);
         article.appendChild(img);
         article.appendChild(caption);
-        article.addEventListener('click', () => openLightbox(project));
-        article.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            openLightbox(project);
-          }
-        });
+
+        if (project.media.length > 0) {
+          article.tabIndex = 0;
+          article.setAttribute('role', 'button');
+          article.setAttribute('aria-label', `View ${project.title} gallery`);
+          article.addEventListener('click', () => openLightbox(project));
+          article.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              openLightbox(project);
+            }
+          });
+        }
 
         return article;
+      }
+
+      function playVideoWhenVisible(media) {
+        requestAnimationFrame(() => {
+          if (!lightbox.classList.contains('open') ||
+              lightboxVideo.hidden ||
+              activeProject.media[activeMediaIndex] !== media) {
+            return;
+          }
+
+          lightboxVideo.play().catch(error => {
+            if (error.name !== 'AbortError') {
+              console.error('Gallery video autoplay was blocked.', error);
+            }
+          });
+        });
       }
 
       function renderActiveMedia() {
@@ -423,8 +422,12 @@
 
         if (isVideo) {
           lightboxImage.removeAttribute('src');
+          lightboxVideo.pause();
           lightboxVideo.src = media.src;
+          lightboxVideo.muted = true;
+          lightboxVideo.playsInline = true;
           lightboxVideo.load();
+          playVideoWhenVisible(media);
         } else {
           lightboxVideo.pause();
           lightboxVideo.removeAttribute('src');
@@ -512,7 +515,7 @@
 
           projects.forEach((project, index) => {
             if (typeof project.title !== 'string' || typeof project.cover !== 'string' ||
-                !Array.isArray(project.media) || project.media.length === 0) {
+                !Array.isArray(project.media)) {
               throw new Error(`Invalid project entry at position ${index + 1}.`);
             }
 

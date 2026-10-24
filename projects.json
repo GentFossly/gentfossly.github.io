@@ -6,30 +6,29 @@
     "media": [
       {
         "type": "image",
-        "src": "images/Chromeliness/cover.jpeg",
-        "alt": "Chromeliness — cover"
-      },
-      {
-        "type": "image",
         "src": "images/Chromeliness/1.jpeg",
         "alt": "Chromeliness — 1"
       }
     ]
   },
   {
-    "title": "Open Up",
+    "title": "Open Up (Prototype)",
     "subtitle": "Artwork study",
-    "cover": "images/Open%20Up/cover.jpeg",
+    "cover": "images/Open%20Up%20(Prototype)/cover.jpeg",
     "media": [
       {
-        "type": "image",
-        "src": "images/Open%20Up/cover.jpeg",
-        "alt": "Open Up — cover"
+        "type": "video",
+        "src": "images/Open%20Up%20(Prototype)/1.mp4"
       },
       {
         "type": "image",
-        "src": "images/Open%20Up/GentFossly-OpenUp-Closed-image.jpeg",
-        "alt": "Open Up — GentFossly OpenUp Closed image"
+        "src": "images/Open%20Up%20(Prototype)/2.jpeg",
+        "alt": "Open Up (Prototype) — 2"
+      },
+      {
+        "type": "image",
+        "src": "images/Open%20Up%20(Prototype)/3.jpeg",
+        "alt": "Open Up (Prototype) — 3"
       }
     ]
   }

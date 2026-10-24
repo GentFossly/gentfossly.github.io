@@ -6,14 +6,14 @@ The portfolio is built from the folders directly inside `images/`. GitHub Action
 
 1. Create one folder directly under `images/` for each project. The folder name becomes the project title. For example: `images/Open Up/`.
 2. Put all gallery media directly in that folder. Nested folders are not scanned.
-3. Add exactly one image whose filename is `cover` plus an image extension, such as `cover.jpg`, `cover.jpeg`, `cover.png`, `cover.webp`, `cover.avif`, or `cover.gif`. Filename capitalization does not matter. The cover is shown on the portfolio page and is also the first item in the gallery.
+3. Add exactly one image whose filename is `cover` plus an image extension, such as `cover.jpg`, `cover.jpeg`, `cover.png`, `cover.webp`, `cover.avif`, or `cover.gif`. Filename capitalization does not matter. The cover is shown on the portfolio page and is not repeated in the clicked-through gallery.
 4. Add any other supported files next to the cover:
    - Images: `.avif`, `.bmp`, `.gif`, `.jpeg`, `.jpg`, `.png`, `.svg`, `.webp`
    - Videos: `.mp4`, `.ogv`, `.webm`
-5. Use numbered filenames to control gallery order, for example `01-open.jpg`, `02-closed.jpg`, `03-detail.mp4`. The cover always appears first; remaining files are ordered naturally by filename (`2` before `10`).
+5. Use numbered filenames to control gallery order, for example `01-open.jpg`, `02-closed.jpg`, `03-detail.mp4`. Gallery files are ordered naturally by filename (`2` before `10`); the cover is excluded.
 6. Avoid duplicate project folder names. Use filenames and folder names that work in URLs; spaces are supported.
 
-Folders with no supported media are ignored. A folder with supported media but no cover, or more than one cover image, fails the build with a clear error instead of silently omitting the artwork.
+Videos in the gallery start muted automatically when selected; playback controls remain available. Folders with no supported media are ignored. A folder with supported media but no cover, or more than one cover image, fails the build with a clear error instead of silently omitting the artwork.
 
 ## Previewing locally
 

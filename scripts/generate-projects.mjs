@@ -56,8 +56,8 @@ export async function buildProjects(imagesDirectory) {
     }
 
     const cover = covers[0];
-    const orderedMedia = [cover, ...mediaFiles.filter(filename => filename !== cover).sort(naturalSort)];
-    const media = orderedMedia.map(filename => {
+    const galleryFiles = mediaFiles.filter(filename => filename !== cover).sort(naturalSort);
+    const media = galleryFiles.map(filename => {
       const extension = path.extname(filename).toLowerCase();
       const type = IMAGE_EXTENSIONS.has(extension) ? 'image' : 'video';
       const relativePath = path.join('images', directoryName, filename);
@@ -73,7 +73,7 @@ export async function buildProjects(imagesDirectory) {
     projects.push({
       title: directoryName,
       subtitle: 'Artwork study',
-      cover: media[0].src,
+      cover: encodePath(path.join('images', directoryName, cover)),
       media
     });
   }

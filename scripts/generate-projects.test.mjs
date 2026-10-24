@@ -13,7 +13,7 @@ async function createFixture(t) {
   return { root, imagesDirectory };
 }
 
-test('builds projects with cover first and naturally ordered image and video media', async (t) => {
+test('uses the cover for the card and excludes it from naturally ordered gallery media', async (t) => {
   const { imagesDirectory } = await createFixture(t);
   const projectDirectory = path.join(imagesDirectory, 'Open Up');
   await mkdir(projectDirectory);
@@ -32,7 +32,6 @@ test('builds projects with cover first and naturally ordered image and video med
     subtitle: 'Artwork study',
     cover: 'images/Open%20Up/cover.jpeg',
     media: [
-      { type: 'image', src: 'images/Open%20Up/cover.jpeg', alt: 'Open Up — cover' },
       { type: 'image', src: 'images/Open%20Up/02-closed.JPG', alt: 'Open Up — 02 closed' },
       { type: 'video', src: 'images/Open%20Up/10-detail.mp4' }
     ]
@@ -56,6 +55,18 @@ test('requires exactly one supported cover image for any folder containing media
     buildProjects(imagesDirectory),
     /found 2/
   );
+});
+
+test('keeps cover-only projects but leaves their gallery empty', async (t) => {
+  const { imagesDirectory } = await createFixture(t);
+  const projectDirectory = path.join(imagesDirectory, 'Cover Only');
+  await mkdir(projectDirectory);
+  await writeFile(path.join(projectDirectory, 'cover.jpeg'), '');
+
+  const [project] = await buildProjects(imagesDirectory);
+
+  assert.equal(project.cover, 'images/Cover%20Only/cover.jpeg');
+  assert.deepEqual(project.media, []);
 });
 
 test('writes a parseable JSON manifest to the requested output path', async (t) => {
