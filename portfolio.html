@@ -115,12 +115,13 @@
 
       .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
         gap: 1rem;
       }
 
       .card {
         position: relative;
+        height: clamp(240px, 28vw, 340px);
         overflow: hidden;
         border-radius: 24px;
         background: #fff;
@@ -140,16 +141,6 @@
       .card:focus-within img {
         transform: scale(1.03);
         filter: saturate(1.02);
-      }
-
-      .card--wide { grid-column: span 7; height: 540px; }
-      .card--tall { grid-column: span 5; height: 540px; }
-      .card--square { grid-column: span 4; height: 360px; }
-      .card--landscape { grid-column: span 8; height: 360px; }
-
-      .card--featured {
-        grid-column: span 12;
-        height: 580px;
       }
 
       .caption {
@@ -282,17 +273,6 @@
         align-items: center;
       }
 
-      @media (max-width: 900px) {
-        .card--wide,
-        .card--tall,
-        .card--square,
-        .card--landscape,
-        .card--featured {
-          grid-column: span 12;
-          height: 420px;
-        }
-      }
-
       @media (max-width: 620px) {
         .nav {
           flex-direction: column;
@@ -305,13 +285,8 @@
           padding-top: 3rem;
         }
 
-        .card--wide,
-        .card--tall,
-        .card--square,
-        .card--landscape,
-        .card--featured {
-          height: 300px;
-        }
+        .gallery-grid { grid-template-columns: 1fr 1fr; }
+        .card { height: 220px; }
 
         .footer-inner {
           flex-direction: column;
@@ -404,16 +379,9 @@
       let activeMediaIndex = 0;
       let lastFocusedElement = null;
 
-      function createCard(project, index) {
+      function createCard(project) {
         const article = document.createElement('article');
         article.className = 'card';
-
-        const sizeClass = index % 6 === 0 ? 'card--featured' :
-                          index % 3 === 0 ? 'card--wide' :
-                          index % 2 === 0 ? 'card--landscape' :
-                          'card--square';
-
-        article.classList.add(sizeClass);
         article.tabIndex = 0;
         article.setAttribute('role', 'button');
         article.setAttribute('aria-label', `View ${project.title} gallery`);
@@ -548,7 +516,7 @@
               throw new Error(`Invalid project entry at position ${index + 1}.`);
             }
 
-            galleryGrid.appendChild(createCard(project, index));
+            galleryGrid.appendChild(createCard(project));
           });
         } catch (error) {
           console.error(error);

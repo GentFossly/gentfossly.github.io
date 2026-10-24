@@ -1,5 +1,22 @@
 [
   {
+    "title": "Chromeliness",
+    "subtitle": "Artwork study",
+    "cover": "images/Chromeliness/cover.jpeg",
+    "media": [
+      {
+        "type": "image",
+        "src": "images/Chromeliness/cover.jpeg",
+        "alt": "Chromeliness — cover"
+      },
+      {
+        "type": "image",
+        "src": "images/Chromeliness/1.jpeg",
+        "alt": "Chromeliness — 1"
+      }
+    ]
+  },
+  {
     "title": "Open Up",
     "subtitle": "Artwork study",
     "cover": "images/Open%20Up/cover.jpeg",
