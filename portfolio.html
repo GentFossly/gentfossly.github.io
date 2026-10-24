@@ -1,1 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Gent Fossly</title>
+    <meta name="description" content="Portfolio of kinetic floral artworks and sculptural studies by Gent Fossly." />
+    <style>
+      :root {
+        --bg: #f4efe9;
+        --paper: #fffdfb;
+        --ink: #1f1c1a;
+        --muted: #615b55;
+        --line: rgba(31, 28, 26, 0.12);
+        --shadow: 0 20px 50px rgba(25, 20, 16, 0.08);
+        --soft: #d5d8c9;
+      }
 
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.6;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(12px);
+        background: rgba(244, 239, 233, 0.78);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 72px;
+      }
+
+      .brand {
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.98rem;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        color: var(--muted);
+      }
+
+      .nav-links a {
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.2s ease;
+      }
+
+      .nav-links a:hover::after,
+      .nav-links a:focus-visible::after {
+        transform: scaleX(1);
+      }
+
+      .page-intro {
+        padding: 4rem 0 2rem;
+      }
+
+      .page-intro h1 {
+        margin: 0 0 0.8rem;
+        font-size: clamp(2.4rem, 5vw, 4.5rem);
+        letter-spacing: -0.06em;
+        line-height: 0.96;
+        font-weight: 500;
+      }
+
+      .intro-copy {
+        max-width: 700px;
+        color: var(--muted);
+        font-size: 1.08rem;
+      }
+
+      .gallery {
+        padding: 1rem 0 4rem;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+        background: #fff;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .card img {
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.35s ease, filter 0.35s ease;
+      }
+
+      .card:hover img,
+      .card:focus-within img {
+        transform: scale(1.03);
+        filter: saturate(1.02);
+      }
+
+      .card--wide { grid-column: span 7; height: 540px; }
+      .card--tall { grid-column: span 5; height: 540px; }
+      .card--square { grid-column: span 4; height: 360px; }
+      .card--landscape { grid-column: span 8; height: 360px; }
+
+      .caption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 1rem 1.1rem 1.1rem;
+        background: linear-gradient(to top, rgba(24, 22, 20, 0.72), rgba(24, 22, 20, 0));
+        color: white;
+      }
+
+      .caption strong {
+        display: block;
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+
+      .caption span {
+        font-size: 0.82rem;
+        opacity: 0.8;
+      }
+
+      footer {
+        padding: 1.5rem 0 3rem;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      @media (max-width: 900px) {
+        .card--wide,
+        .card--tall,
+        .card--square,
+        .card--landscape {
+          grid-column: span 12;
+          height: 420px;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .nav {
+          flex-direction: column;
+          justify-content: center;
+          gap: 0.75rem;
+          padding: 0.9rem 0 1rem;
+        }
+
+        .page-intro {
+          padding-top: 3rem;
+        }
+
+        .card--wide,
+        .card--tall,
+        .card--square,
+        .card--landscape {
+          height: 300px;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="index.html">Gent Fossly</a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="portfolio.html">Portfolio</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-intro">
+        <div class="container">
+          <h1>Portfolio.</h1>
+          <p class="intro-copy">
+            Kinetic artworks rooted in flowers, motion, and transformation — exploring nature as an active, living force.
+          </p>
+        </div>
+      </section>
+
+      <section class="gallery">
+        <div class="container">
+          <div class="gallery-grid">
+            <article class="card card--wide">
+              <img src="images/GentFossly-OpenUp-open-image.jpeg" alt="Open flower kinetic artwork in an expanded state" />
+              <div class="caption">
+                <strong>Open Up</strong>
+                <span>Kinetic floral study</span>
+              </div>
+            </article>
+
+            <article class="card card--tall">
+              <img src="images/GentFossly-OpenUp-Closed-image.jpeg" alt="Closed flower kinetic artwork in a contracted state" />
+              <div class="caption">
+                <strong>Closed</strong>
+                <span>Transformation and stillness</span>
+              </div>
+            </article>
+
+            <article class="card card--square">
+              <img src="images/GentFossly-OpenUp-open-image.jpeg" alt="A close crop of the kinetic flower piece" />
+              <div class="caption">
+                <strong>Detail</strong>
+                <span>Material / form</span>
+              </div>
+            </article>
+
+            <article class="card card--square">
+              <img src="images/GentFossly-OpenUp-Closed-image.jpeg" alt="A secondary study of the flower form" />
+              <div class="caption">
+                <strong>Study</strong>
+                <span>Repetition and rhythm</span>
+              </div>
+            </article>
+
+            <article class="card card--landscape">
+              <img src="images/GentFossly-OpenUp-open-image.jpeg" alt="Large floral motion work" />
+              <div class="caption">
+                <strong>Process</strong>
+                <span>Nature in motion</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>Gent Fossly — artist and designer</div>
+        <div>Based in the northwest of England</div>
+      </div>
+    </footer>
+  </body>
+</html>
