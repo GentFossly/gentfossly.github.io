@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Open Up",
+    "subtitle": "Artwork study",
+    "cover": "images/Open%20Up/cover.jpeg",
+    "media": [
+      {
+        "type": "image",
+        "src": "images/Open%20Up/cover.jpeg",
+        "alt": "Open Up — cover"
+      },
+      {
+        "type": "image",
+        "src": "images/Open%20Up/GentFossly-OpenUp-Closed-image.jpeg",
+        "alt": "Open Up — GentFossly OpenUp Closed image"
+      }
+    ]
+  }
+]

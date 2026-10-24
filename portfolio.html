@@ -525,10 +525,39 @@
         }
       });
 
-      function loadGallery() {
-        projects.forEach((project, index) => {
-          galleryGrid.appendChild(createCard(project, index));
-        });
+      async function loadGallery() {
+        try {
+          const response = await fetch('projects.json');
+          if (!response.ok) {
+            throw new Error(`Unable to load projects.json (${response.status}).`);
+          }
+
+          const projects = await response.json();
+          if (!Array.isArray(projects)) {
+            throw new Error('The generated project manifest must be a JSON array.');
+          }
+
+          if (projects.length === 0) {
+            galleryGrid.innerHTML = '<p style="grid-column: 1 / -1; color: #615b55;">No portfolio projects found. Add a project folder under /images.</p>';
+            return;
+          }
+
+          projects.forEach((project, index) => {
+            if (typeof project.title !== 'string' || typeof project.cover !== 'string' ||
+                !Array.isArray(project.media) || project.media.length === 0) {
+              throw new Error(`Invalid project entry at position ${index + 1}.`);
+            }
+
+            galleryGrid.appendChild(createCard(project, index));
+          });
+        } catch (error) {
+          console.error(error);
+          galleryGrid.innerHTML = `
+            <p style="grid-column: 1 / -1; color: #615b55;">
+              The portfolio could not load its project list. Run the project generator and reload the page.
+            </p>
+          `;
+        }
       }
 
       loadGallery();
