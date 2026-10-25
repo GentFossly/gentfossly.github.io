@@ -23,8 +23,11 @@ function encodePath(relativePath) {
 
 export async function buildProjects(imagesDirectory) {
   const entries = await readdir(imagesDirectory, { withFileTypes: true });
-  const orderPath = path.join(path.dirname(imagesDirectory), 'project-order.json');
+  const repositoryRoot = path.dirname(imagesDirectory);
+  const orderPath = path.join(repositoryRoot, 'project-order.json');
+  const datesPath = path.join(repositoryRoot, 'project-dates.json');
   let projectOrder = [];
+  let projectDates = {};
 
   try {
     projectOrder = JSON.parse(await readFile(orderPath, 'utf8'));
@@ -34,8 +37,25 @@ export async function buildProjects(imagesDirectory) {
     }
   }
 
+  try {
+    projectDates = JSON.parse(await readFile(datesPath, 'utf8'));
+  } catch (error) {
+    if (error.code !== 'ENOENT') {
+      throw new Error(`Unable to read project dates from "${datesPath}": ${error.message}`);
+    }
+  }
+
   if (!Array.isArray(projectOrder) || projectOrder.some(name => typeof name !== 'string')) {
     throw new Error(`Project order in "${orderPath}" must be a JSON array of folder names.`);
+  }
+
+  if (
+    projectDates === null ||
+    typeof projectDates !== 'object' ||
+    Array.isArray(projectDates) ||
+    Object.values(projectDates).some(date => typeof date !== 'string')
+  ) {
+    throw new Error(`Project dates in "${datesPath}" must be an object mapping folder names to text.`);
   }
 
   const projectOrderIndex = new Map(projectOrder.map((name, index) => [name, index]));
@@ -99,7 +119,7 @@ export async function buildProjects(imagesDirectory) {
 
     projects.push({
       title: directoryName,
-      subtitle: 'Artwork study',
+      subtitle: projectDates[directoryName]?.trim() ?? '',
       cover: encodePath(path.join('images', directoryName, cover)),
       media
     });

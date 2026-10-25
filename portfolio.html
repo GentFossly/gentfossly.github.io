@@ -376,7 +376,9 @@
         const subtitle = document.createElement('span');
         subtitle.textContent = project.subtitle;
         caption.appendChild(title);
-        caption.appendChild(subtitle);
+        if (project.subtitle) {
+          caption.appendChild(subtitle);
+        }
         article.appendChild(img);
         article.appendChild(caption);
 

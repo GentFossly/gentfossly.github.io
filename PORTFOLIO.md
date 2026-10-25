@@ -16,6 +16,19 @@ Edit `project-order.json` in the repository root to list project folder names in
 
 Listed projects appear first in that order. Any project folders not listed are appended in natural alphabetical order. Folder names remain the displayed project titles.
 
+## Entering artwork dates
+
+Edit `project-dates.json` in the repository root. Add the exact project folder name as a key and enter the creation month and year as text:
+
+```json
+{
+  "Open Up (Prototype)": "January 2026",
+  "Azulidad": "March 2025"
+}
+```
+
+The text appears under that artwork's title on the portfolio card. Leave a project out of the file, or give it an empty string, to show no subtitle. After changing dates, run `node scripts/generate-projects.mjs` and refresh the local preview. The dates file is included automatically when the site is deployed.
+
 ## Folder and file rules
 
 1. Create one folder directly under `images/` for each project. The folder name becomes the project title. For example: `images/Open Up/`.

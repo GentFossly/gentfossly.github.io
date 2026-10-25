@@ -29,13 +29,43 @@ test('uses the cover for the card and excludes it from naturally ordered gallery
 
   assert.deepEqual(projects, [{
     title: 'Open Up',
-    subtitle: 'Artwork study',
+    subtitle: '',
     cover: 'images/Open%20Up/cover.jpeg',
     media: [
       { type: 'image', src: 'images/Open%20Up/02-closed.JPG', alt: 'Open Up — 02 closed' },
       { type: 'video', src: 'images/Open%20Up/10-detail.mp4' }
     ]
   }]);
+});
+
+test('uses project dates as subtitles and leaves missing dates blank', async (t) => {
+  const { root, imagesDirectory } = await createFixture(t);
+
+  for (const name of ['Dated Project', 'Undated Project']) {
+    const projectDirectory = path.join(imagesDirectory, name);
+    await mkdir(projectDirectory);
+    await writeFile(path.join(projectDirectory, 'cover.jpg'), '');
+  }
+  await writeFile(path.join(root, 'project-dates.json'), JSON.stringify({
+    'Dated Project': ' January 2026 '
+  }));
+
+  const projects = await buildProjects(imagesDirectory);
+
+  assert.deepEqual(
+    Object.fromEntries(projects.map(project => [project.title, project.subtitle])),
+    { 'Dated Project': 'January 2026', 'Undated Project': '' }
+  );
+});
+
+test('requires project dates to map folder names to text', async (t) => {
+  const { root, imagesDirectory } = await createFixture(t);
+  await writeFile(path.join(root, 'project-dates.json'), JSON.stringify({ 'A Project': 2026 }));
+
+  await assert.rejects(
+    buildProjects(imagesDirectory),
+    /must be an object mapping folder names to text/
+  );
 });
 
 test('requires exactly one supported cover image for any folder containing media', async (t) => {
