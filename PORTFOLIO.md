@@ -2,6 +2,20 @@
 
 The portfolio is built from the folders directly inside `images/`. GitHub Actions scans those folders, creates `projects.json`, and deploys the site with the generated file. You do not need to edit `portfolio.html` when adding projects.
 
+## Controlling project order
+
+Edit `project-order.json` in the repository root to list project folder names in the order they should appear on the portfolio page. Use the exact folder names inside `images/`, without the `images/` prefix. For example:
+
+```json
+[
+  "03 - Open Up (Prototype)",
+  "02 - Asiatic Lily (Prototype)",
+  "Chromeliness II"
+]
+```
+
+Listed projects appear first in that order. Any project folders not listed are appended in natural alphabetical order. Folder names remain the displayed project titles.
+
 ## Folder and file rules
 
 1. Create one folder directly under `images/` for each project. The folder name becomes the project title. For example: `images/Open Up/`.

@@ -69,6 +69,21 @@ test('keeps cover-only projects but leaves their gallery empty', async (t) => {
   assert.deepEqual(project.media, []);
 });
 
+test('orders listed projects first and naturally sorts unlisted projects', async (t) => {
+  const { root, imagesDirectory } = await createFixture(t);
+  await writeFile(path.join(root, 'project-order.json'), JSON.stringify(['Middle', 'Zulu']));
+
+  for (const name of ['Zulu', 'Alpha', 'Middle', 'Beta']) {
+    const projectDirectory = path.join(imagesDirectory, name);
+    await mkdir(projectDirectory);
+    await writeFile(path.join(projectDirectory, 'cover.jpg'), '');
+  }
+
+  const projects = await buildProjects(imagesDirectory);
+
+  assert.deepEqual(projects.map(project => project.title), ['Middle', 'Zulu', 'Alpha', 'Beta']);
+});
+
 test('writes a parseable JSON manifest to the requested output path', async (t) => {
   const { root, imagesDirectory } = await createFixture(t);
   const projectDirectory = path.join(imagesDirectory, 'A Project');

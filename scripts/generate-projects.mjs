@@ -1,4 +1,4 @@
-import { readdir, writeFile } from 'node:fs/promises';
+import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -23,10 +23,37 @@ function encodePath(relativePath) {
 
 export async function buildProjects(imagesDirectory) {
   const entries = await readdir(imagesDirectory, { withFileTypes: true });
+  const orderPath = path.join(path.dirname(imagesDirectory), 'project-order.json');
+  let projectOrder = [];
+
+  try {
+    projectOrder = JSON.parse(await readFile(orderPath, 'utf8'));
+  } catch (error) {
+    if (error.code !== 'ENOENT') {
+      throw new Error(`Unable to read project order from "${orderPath}": ${error.message}`);
+    }
+  }
+
+  if (!Array.isArray(projectOrder) || projectOrder.some(name => typeof name !== 'string')) {
+    throw new Error(`Project order in "${orderPath}" must be a JSON array of folder names.`);
+  }
+
+  const projectOrderIndex = new Map(projectOrder.map((name, index) => [name, index]));
   const projectDirectories = entries
     .filter(entry => entry.isDirectory() && !entry.name.startsWith('.'))
     .map(entry => entry.name)
-    .sort(naturalSort);
+    .sort((a, b) => {
+      const aIndex = projectOrderIndex.get(a);
+      const bIndex = projectOrderIndex.get(b);
+
+      if (aIndex !== undefined || bIndex !== undefined) {
+        if (aIndex === undefined) return 1;
+        if (bIndex === undefined) return -1;
+        return aIndex - bIndex;
+      }
+
+      return naturalSort(a, b);
+    });
   const projects = [];
 
   for (const directoryName of projectDirectories) {
