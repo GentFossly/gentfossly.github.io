@@ -386,7 +386,7 @@
           <div class="hero-art" aria-label="Featured artwork video">
             <video id="featuredVideo" autoplay muted loop playsinline controls hidden></video>
             <p id="featuredVideoMessage" class="hero-art-message" role="status">
-              Add an MP4, WebM, or OGV video to a project folder to feature it here.
+              Add a video with “showcase” in its filename to feature it here.
             </p>
           </div>
         </div>
@@ -503,7 +503,14 @@
 
           const videos = projects.flatMap(project =>
             Array.isArray(project.media)
-              ? project.media.filter(media => media.type === 'video' && typeof media.src === 'string')
+              ? project.media.filter(media => {
+                  if (media.type !== 'video' || typeof media.src !== 'string') {
+                    return false;
+                  }
+
+                  const filename = new URL(media.src, document.baseURI).pathname.split('/').pop();
+                  return filename.toLowerCase().includes('showcase');
+                })
               : []
           );
 

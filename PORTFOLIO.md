@@ -15,6 +15,8 @@ The portfolio is built from the folders directly inside `images/`. GitHub Action
 
 Videos in the gallery start muted automatically when selected; playback controls remain available. Folders with no supported media are ignored. A folder with supported media but no cover, or more than one cover image, fails the build with a clear error instead of silently omitting the artwork.
 
+The home page randomly features videos whose filename includes `showcase` (case-insensitive), such as `1-showcase.mp4` or `flower-showcase-detail.webm`. Other videos remain available in the portfolio gallery but are not selected for the home page.
+
 ## Previewing locally
 
 After adding or renaming media, regenerate the local manifest and run the site through Live Server:

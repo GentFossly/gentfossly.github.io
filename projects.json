@@ -1,12 +1,53 @@
 [
   {
-    "title": "Chromeliness II",
+    "title": "Azulidad",
     "subtitle": "Artwork study",
-    "cover": "images/Chromeliness%20II/cover.jpeg",
+    "cover": "images/Azulidad/cover.jpg",
     "media": [
       {
         "type": "video",
-        "src": "images/Chromeliness%20II/1.mp4"
+        "src": "images/Azulidad/1-showcase.mp4"
+      },
+      {
+        "type": "image",
+        "src": "images/Azulidad/3.PNG",
+        "alt": "Azulidad — 3"
+      },
+      {
+        "type": "image",
+        "src": "images/Azulidad/4.PNG",
+        "alt": "Azulidad — 4"
+      },
+      {
+        "type": "image",
+        "src": "images/Azulidad/5.jpeg",
+        "alt": "Azulidad — 5"
+      },
+      {
+        "type": "image",
+        "src": "images/Azulidad/6.jpeg",
+        "alt": "Azulidad — 6"
+      },
+      {
+        "type": "image",
+        "src": "images/Azulidad/7.PNG",
+        "alt": "Azulidad — 7"
+      },
+      {
+        "type": "image",
+        "src": "images/Azulidad/8.jpg",
+        "alt": "Azulidad — 8"
+      }
+    ]
+  },
+  {
+    "title": "Chromeliness II",
+    "subtitle": "Artwork study",
+    "cover": "images/Chromeliness%20II/cover.jpg",
+    "media": [
+      {
+        "type": "video",
+        "src": "images/Chromeliness%20II/1-showcase.mp4"
       },
       {
         "type": "image",
@@ -32,7 +73,7 @@
     "media": [
       {
         "type": "video",
-        "src": "images/Open%20Up%20(Prototype)/1.mp4"
+        "src": "images/Open%20Up%20(Prototype)/1-showcase.mp4"
       },
       {
         "type": "image",
@@ -43,6 +84,11 @@
         "type": "image",
         "src": "images/Open%20Up%20(Prototype)/4.jpeg",
         "alt": "Open Up (Prototype) — 4"
+      },
+      {
+        "type": "image",
+        "src": "images/Open%20Up%20(Prototype)/5.jpg",
+        "alt": "Open Up (Prototype) — 5"
       }
     ]
   }
