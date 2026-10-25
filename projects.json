@@ -1,13 +1,27 @@
 [
   {
-    "title": "Chromeliness",
+    "title": "Chromeliness II",
     "subtitle": "Artwork study",
-    "cover": "images/Chromeliness/cover.jpeg",
+    "cover": "images/Chromeliness%20II/cover.jpeg",
     "media": [
       {
+        "type": "video",
+        "src": "images/Chromeliness%20II/1.mp4"
+      },
+      {
         "type": "image",
-        "src": "images/Chromeliness/1.jpeg",
-        "alt": "Chromeliness — 1"
+        "src": "images/Chromeliness%20II/3.PNG",
+        "alt": "Chromeliness II — 3"
+      },
+      {
+        "type": "image",
+        "src": "images/Chromeliness%20II/4.PNG",
+        "alt": "Chromeliness II — 4"
+      },
+      {
+        "type": "image",
+        "src": "images/Chromeliness%20II/5.jpg",
+        "alt": "Chromeliness II — 5"
       }
     ]
   },
@@ -22,13 +36,13 @@
       },
       {
         "type": "image",
-        "src": "images/Open%20Up%20(Prototype)/2.jpeg",
-        "alt": "Open Up (Prototype) — 2"
+        "src": "images/Open%20Up%20(Prototype)/3.jpeg",
+        "alt": "Open Up (Prototype) — 3"
       },
       {
         "type": "image",
-        "src": "images/Open%20Up%20(Prototype)/3.jpeg",
-        "alt": "Open Up (Prototype) — 3"
+        "src": "images/Open%20Up%20(Prototype)/4.jpeg",
+        "alt": "Open Up (Prototype) — 4"
       }
     ]
   }
