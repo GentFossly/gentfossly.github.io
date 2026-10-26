@@ -67,6 +67,17 @@
     ]
   },
   {
+    "title": "Rosachroma",
+    "subtitle": "September 2026",
+    "cover": "images/Rosachroma/cover.jpg",
+    "media": [
+      {
+        "type": "video",
+        "src": "images/Rosachroma/1-rough.mp4"
+      }
+    ]
+  },
+  {
     "title": "Open Up (Prototype)",
     "subtitle": "July 2026",
     "cover": "images/Open%20Up%20(Prototype)/cover.jpeg",
@@ -94,6 +105,119 @@
         "type": "image",
         "src": "images/Open%20Up%20(Prototype)/5.jpg",
         "alt": "Open Up (Prototype) — 5"
+      }
+    ]
+  },
+  {
+    "title": "Asiatic Lily (Prototype)",
+    "subtitle": "December 2025",
+    "cover": "images/Asiatic%20Lily%20(Prototype)/cover.jpeg",
+    "media": [
+      {
+        "type": "video",
+        "src": "images/Asiatic%20Lily%20(Prototype)/1.0.mp4"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/1.1.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 1.1"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/1.2.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 1.2"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/5.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 5"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/6-LilyDissection.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 6 LilyDissection"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/7-motionResearch1.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 7 motionResearch1"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/8-motionResearch2.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 8 motionResearch2"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/14-designSketches.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 14 designSketches"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/15-CADdesk.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 15 CADdesk"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/17.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 17"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/19.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 19"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/21.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 21"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/23.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 23"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/25.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 25"
+      },
+      {
+        "type": "image",
+        "src": "images/Asiatic%20Lily%20(Prototype)/27.jpeg",
+        "alt": "Asiatic Lily (Prototype) — 27"
+      }
+    ]
+  },
+  {
+    "title": "Infinity's Blooms",
+    "subtitle": "April 2024",
+    "cover": "images/Infinity's%20Blooms/cover.png",
+    "media": [
+      {
+        "type": "image",
+        "src": "images/Infinity's%20Blooms/1.png",
+        "alt": "Infinity's Blooms — 1"
+      },
+      {
+        "type": "image",
+        "src": "images/Infinity's%20Blooms/3.jpeg",
+        "alt": "Infinity's Blooms — 3"
+      },
+      {
+        "type": "image",
+        "src": "images/Infinity's%20Blooms/4.jpeg",
+        "alt": "Infinity's Blooms — 4"
+      },
+      {
+        "type": "image",
+        "src": "images/Infinity's%20Blooms/5.jpg",
+        "alt": "Infinity's Blooms — 5"
+      },
+      {
+        "type": "image",
+        "src": "images/Infinity's%20Blooms/6.JPG",
+        "alt": "Infinity's Blooms — 6"
       }
     ]
   }
