@@ -220,5 +220,146 @@
         "alt": "Infinity's Blooms — 6"
       }
     ]
+  },
+  {
+    "title": "Assassin & Friends",
+    "subtitle": "May 2024",
+    "cover": "images/Assassin%20%26%20Friends/cover.jpeg",
+    "media": [
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/1-Assassin%26Friends.jpeg",
+        "alt": "Assassin & Friends — 1 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/3-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 3 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/4-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 4 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/5-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 5 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/6-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 6 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/7-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 7 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/8-Assassin%26Friends.jpeg",
+        "alt": "Assassin & Friends — 8 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/9-Assassin%26Friends.jpeg",
+        "alt": "Assassin & Friends — 9 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/10-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 10 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/11-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 11 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/12-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 12 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/13-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 13 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/14-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 14 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/15-Assassin%26Friends.jpeg",
+        "alt": "Assassin & Friends — 15 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/16-Assassin%26Friends.jpeg",
+        "alt": "Assassin & Friends — 16 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/17-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 17 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/18-Assassin%26Friends.jpeg",
+        "alt": "Assassin & Friends — 18 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/19-Assassin%26Friends.jpg",
+        "alt": "Assassin & Friends — 19 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/20-Assassin%26Friends.jpeg",
+        "alt": "Assassin & Friends — 20 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/21-Assassin%26Friends.jpeg",
+        "alt": "Assassin & Friends — 21 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/22-Assassin%26Friends.jpeg",
+        "alt": "Assassin & Friends — 22 Assassin&Friends"
+      },
+      {
+        "type": "image",
+        "src": "images/Assassin%20%26%20Friends/23-Assassin%26Friends.jpeg",
+        "alt": "Assassin & Friends — 23 Assassin&Friends"
+      }
+    ]
+  },
+  {
+    "title": "Macaw",
+    "subtitle": "August 2023",
+    "cover": "images/Macaw/cover.jpg",
+    "media": [
+      {
+        "type": "image",
+        "src": "images/Macaw/1.jpg",
+        "alt": "Macaw — 1"
+      }
+    ]
+  },
+  {
+    "title": "Mechanical Seas",
+    "subtitle": "May 2021",
+    "cover": "images/Mechanical%20Seas/cover.jpg",
+    "media": [
+      {
+        "type": "image",
+        "src": "images/Mechanical%20Seas/1.gif",
+        "alt": "Mechanical Seas — 1"
+      }
+    ]
   }
 ]
