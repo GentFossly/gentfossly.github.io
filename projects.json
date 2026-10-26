@@ -339,6 +339,75 @@
     ]
   },
   {
+    "title": "Gothic Corner",
+    "subtitle": "January 2024",
+    "cover": "images/Gothic%20Corner/cover.jpeg",
+    "media": [
+      {
+        "type": "image",
+        "src": "images/Gothic%20Corner/1-GothicCorner.jpeg",
+        "alt": "Gothic Corner — 1 GothicCorner"
+      },
+      {
+        "type": "image",
+        "src": "images/Gothic%20Corner/1.5-GothicCornerRealImage.jpg",
+        "alt": "Gothic Corner — 1.5 GothicCornerRealImage"
+      },
+      {
+        "type": "image",
+        "src": "images/Gothic%20Corner/3-GothicCorner.jpeg",
+        "alt": "Gothic Corner — 3 GothicCorner"
+      },
+      {
+        "type": "image",
+        "src": "images/Gothic%20Corner/4-GothicCorner.jpg",
+        "alt": "Gothic Corner — 4 GothicCorner"
+      }
+    ]
+  },
+  {
+    "title": "Window",
+    "subtitle": "November 2023",
+    "cover": "images/Window/cover.jpeg",
+    "media": [
+      {
+        "type": "image",
+        "src": "images/Window/1-Window.jpeg",
+        "alt": "Window — 1 Window"
+      },
+      {
+        "type": "image",
+        "src": "images/Window/1.5-WindowRealImage.jpg",
+        "alt": "Window — 1.5 WindowRealImage"
+      },
+      {
+        "type": "image",
+        "src": "images/Window/3-Window.jpg",
+        "alt": "Window — 3 Window"
+      },
+      {
+        "type": "image",
+        "src": "images/Window/4-Window.jpg",
+        "alt": "Window — 4 Window"
+      },
+      {
+        "type": "image",
+        "src": "images/Window/5-Window.jpg",
+        "alt": "Window — 5 Window"
+      },
+      {
+        "type": "image",
+        "src": "images/Window/6-Window.jpeg",
+        "alt": "Window — 6 Window"
+      },
+      {
+        "type": "image",
+        "src": "images/Window/7-Window.jpg",
+        "alt": "Window — 7 Window"
+      }
+    ]
+  },
+  {
     "title": "Macaw",
     "subtitle": "August 2023",
     "cover": "images/Macaw/cover.jpg",
