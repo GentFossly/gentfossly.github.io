@@ -69,11 +69,15 @@
   {
     "title": "Rosachroma",
     "subtitle": "September 2026",
-    "cover": "images/Rosachroma/cover.jpg",
+    "cover": "images/Rosachroma/cover.png",
     "media": [
       {
         "type": "video",
-        "src": "images/Rosachroma/1-rough.mp4"
+        "src": "images/Rosachroma/1-showcase.mp4"
+      },
+      {
+        "type": "video",
+        "src": "images/Rosachroma/2-video.mp4"
       }
     ]
   },
