@@ -4,8 +4,8 @@ sessionStorage.removeItem(transitionKey);
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const whiteFaceDuration = reduceMotion ? 1 : 100;
-const cubeScaleDuration = reduceMotion ? 1 : 1300;
-const returnDuration = reduceMotion ? 1 : 500;
+const cubeScaleDuration = reduceMotion ? 1 : 1100;
+const returnDuration = reduceMotion ? 1 : 600;
 
 function navigateWithTransition(link, mode) {
   if (mode === 'enter') {

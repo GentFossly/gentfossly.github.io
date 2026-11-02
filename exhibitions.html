@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <title>Exhibitions | Gent Fossly</title>
+    <meta name="description" content="Gent Fossly's previous exhibitions." />
+    <script>
+      if (sessionStorage.getItem('gentfossly-transition') === 'enter') {
+        document.documentElement.classList.add('is-entering');
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="section-page.css" />
+    <link rel="stylesheet" href="page-transitions.css?v=12" />
+    <style>
+      .exhibitions-intro {
+        max-width: 620px;
+        margin: 0 0 2.5rem;
+        color: var(--muted);
+      }
+
+      .exhibition-list {
+        display: grid;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .exhibition {
+        display: grid;
+        grid-template-columns: 3rem minmax(0, 1fr);
+        gap: 1.25rem;
+        padding: clamp(1.25rem, 4vw, 2rem);
+        border: 1px solid var(--line);
+        border-radius: 1rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+      }
+
+      .exhibition-number {
+        padding-top: 0.25rem;
+        color: var(--muted);
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+      }
+
+      .exhibition h2 {
+        margin: 0;
+        font-size: clamp(1.35rem, 4vw, 2rem);
+        font-weight: 500;
+        letter-spacing: -0.05em;
+        line-height: 1.3;
+      }
+
+      .exhibition-dates {
+        margin: 0.35rem 0 1.5rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .exhibition-details {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin: 0;
+      }
+
+      .exhibition-details dt,
+      .pieces-title {
+        margin: 0 0 0.45rem;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .exhibition-details dd {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .pieces {
+        grid-column: 1 / -1;
+      }
+
+      .pieces ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .pieces li {
+        padding: 0.45rem 0.7rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      @media (max-width: 480px) {
+        .exhibition {
+          grid-template-columns: 1fr;
+          gap: 0.5rem;
+        }
+
+        .exhibition-number {
+          padding: 0;
+        }
+
+        .exhibition-details {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <a class="page-close" href="index.html" aria-label="Return to cube" data-cube-return>×</a>
+      <h1>Past exhibitions</h1>
+      <p class="exhibitions-intro">
+        A record of exhibitions, the places they were shown, and the pieces brought together.
+      </p>
+      <ol class="exhibition-list" aria-label="Past exhibitions">
+        <li>
+          <article class="exhibition">
+            <span class="exhibition-number" aria-hidden="true">02</span>
+            <div>
+              <h2>Bath Society of Artists 121st Open Exhibition</h2>
+              <p class="exhibition-dates">19 September - 7 November 2026</p>
+              <dl class="exhibition-details">
+                <div>
+                  <dt>Venue &amp; city</dt>
+                  <dd>Victoria Art Gallery, Bath</dd>
+                </div>
+                <div class="pieces">
+                  <dt class="pieces-title">Pieces exhibited</dt>
+                  <dd>
+                    <ul>
+                      <li>Chromeliness</li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="exhibition">
+            <span class="exhibition-number" aria-hidden="true">01</span>
+            <div>
+              <h2>Year 13+ Winner, Sefton Young Artist of the Year 2026</h2>
+              <p class="exhibition-dates">18 July - 29 August 2026</p>
+              <dl class="exhibition-details">
+                <div>
+                  <dt>Venue &amp; city</dt>
+                  <dd>The Atkinson, Southport</dd>
+                </div>
+                <div class="pieces">
+                  <dt class="pieces-title">Pieces exhibited</dt>
+                  <dd>
+                    <ul>
+                      <li>Infinity's Blooms</li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+        </li>
+      </ol>
+    </main>
+    <script src="page-transitions.js?v=9"></script>
+  </body>
+</html>
