@@ -3,23 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
     <title>Portfolio | Gent Fossly</title>
     <meta name="description" content="Portfolio of kinetic floral artworks and sculptural studies by Gent Fossly." />
+    <script>
+      if (sessionStorage.getItem('gentfossly-transition') === 'enter') {
+        document.documentElement.classList.add('is-entering');
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="page-transitions.css?v=12" />
     <style>
       :root {
-        --bg: #f4efe9;
-        --paper: #fffdfb;
-        --ink: #1f1c1a;
-        --muted: #615b55;
-        --line: rgba(31, 28, 26, 0.12);
-        --shadow: 0 20px 50px rgba(25, 20, 16, 0.08);
+        --bg: #000;
+        --paper: #fff;
+        --ink: #fff;
+        --muted: #bdbdbd;
+        --line: rgba(255, 255, 255, 0.18);
+        --shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
       }
 
       * { box-sizing: border-box; }
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Comfortaa", "Trebuchet MS", sans-serif;
         background: var(--bg);
         color: var(--ink);
         line-height: 1.6;
@@ -36,17 +46,12 @@
       }
 
       .container {
-        width: min(1180px, calc(100% - 2rem));
+        width: min(1320px, calc(100% - 3rem));
         margin: 0 auto;
       }
 
       header {
-        position: sticky;
-        top: 0;
-        z-index: 30;
-        backdrop-filter: blur(12px);
-        background: rgba(244, 239, 233, 0.78);
-        border-bottom: 1px solid var(--line);
+        padding: 1.5rem 0 0;
       }
 
       .nav {
@@ -56,76 +61,41 @@
         min-height: 72px;
       }
 
-      .brand {
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        font-size: 0.98rem;
-      }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 1.25rem;
-        color: var(--muted);
-      }
-
-      .nav-links a {
-        position: relative;
-      }
-
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -6px;
-        width: 100%;
-        height: 1px;
-        background: currentColor;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.2s ease;
-      }
-
-      .nav-links a:hover::after,
-      .nav-links a:focus-visible::after {
-        transform: scaleX(1);
-      }
-
       .page-intro {
-        padding: 4rem 0 2rem;
+        padding: clamp(4rem, 9vw, 8rem) 0 2.5rem;
       }
 
       .page-intro h1 {
-        margin: 0 0 0.8rem;
-        font-size: clamp(2.4rem, 5vw, 4.5rem);
-        letter-spacing: -0.06em;
-        line-height: 0.96;
+        margin: 0 0 1rem;
+        font-size: clamp(2.8rem, 8vw, 6.4rem);
+        letter-spacing: -0.09em;
+        line-height: 1.05;
         font-weight: 500;
       }
 
       .intro-copy {
-        max-width: 700px;
+        max-width: 650px;
         color: var(--muted);
-        font-size: 1.08rem;
+        font-size: clamp(0.9rem, 1.8vw, 1.05rem);
       }
 
       .gallery {
-        padding: 1rem 0 4rem;
+        padding: 1rem 0 5rem;
       }
 
       .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+        gap: clamp(0.65rem, 1.5vw, 1.2rem);
       }
 
       .card {
         position: relative;
         aspect-ratio: 1;
         overflow: hidden;
-        border-radius: 24px;
-        background: #fff;
-        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: var(--paper);
+        border: 1px solid rgba(244, 241, 232, 0.22);
         box-shadow: var(--shadow);
         cursor: pointer;
       }
@@ -137,7 +107,7 @@
         height: 100%;
         object-fit: contain;
         object-position: center;
-        transition: transform 0.35s ease, filter 0.35s ease;
+        transition: transform 0.5s cubic-bezier(0.2, 0.65, 0.3, 1), filter 0.35s ease;
       }
 
       .card:hover img,
@@ -267,6 +237,7 @@
         padding: 1.5rem 0 3rem;
         border-top: 1px solid var(--line);
         color: var(--muted);
+        font-size: 0.78rem;
       }
 
       .footer-inner {
@@ -276,16 +247,52 @@
         align-items: center;
       }
 
-      @media (max-width: 620px) {
-        .nav {
-          flex-direction: column;
-          justify-content: center;
-          gap: 0.75rem;
-          padding: 0.9rem 0 1rem;
-        }
+      .portfolio-close {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 20;
+        display: grid;
+        width: 40px;
+        height: 40px;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+        font: inherit;
+        font-size: 1.4rem;
+        line-height: 1;
+        text-decoration: none;
+        transition: background-color 180ms ease, border-color 180ms ease;
+      }
 
+      .portfolio-close:hover,
+      .portfolio-close:focus-visible {
+        border-color: #fff;
+        background: #222;
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+      }
+
+      .page-intro .eyebrow {
+        display: inline-block;
+        margin-bottom: 1.2rem;
+        color: #fff;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .card:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 620px) {
         .page-intro {
-          padding-top: 3rem;
+          padding-top: 4rem;
         }
 
         .gallery-grid { grid-template-columns: 1fr 1fr; }
@@ -298,19 +305,12 @@
     </style>
   </head>
   <body>
-    <header>
-      <div class="container nav">
-        <a class="brand" href="index.html">Gent Fossly</a>
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="index.html">Home</a>
-          <a href="portfolio.html">Portfolio</a>
-        </nav>
-      </div>
-    </header>
+    <a class="portfolio-close" href="index.html" aria-label="Return to cube" data-cube-return>×</a>
 
     <main>
       <section class="page-intro">
         <div class="container">
+          <span class="eyebrow">Selected works</span>
           <h1>Portfolio.</h1>
           <p class="intro-copy">
             Kinetic artworks rooted in flowers, motion, and transformation — exploring nature as an active, living force.
@@ -360,6 +360,15 @@
       let activeProject = null;
       let activeMediaIndex = 0;
       let lastFocusedElement = null;
+      let pointerPressedCard = null;
+
+      document.addEventListener('pointerdown', (event) => {
+        pointerPressedCard = event.isPrimary && event.button === 0 &&
+          event.target instanceof Element ? event.target.closest('.card') : null;
+      }, true);
+      document.addEventListener('pointercancel', () => {
+        pointerPressedCard = null;
+      }, true);
 
       function createCard(project) {
         const article = document.createElement('article');
@@ -389,10 +398,16 @@
           article.tabIndex = 0;
           article.setAttribute('role', 'button');
           article.setAttribute('aria-label', `View ${project.title} gallery`);
-          article.addEventListener('click', () => openLightbox(project));
+          article.addEventListener('click', () => {
+            if (pointerPressedCard === article) {
+              pointerPressedCard = null;
+              openLightbox(project);
+            }
+          });
           article.addEventListener('keydown', (event) => {
             if (event.key === 'Enter' || event.key === ' ') {
               event.preventDefault();
+              pointerPressedCard = null;
               openLightbox(project);
             }
           });
@@ -537,5 +552,6 @@
 
       loadGallery();
     </script>
+    <script src="page-transitions.js?v=9"></script>
   </body>
 </html>

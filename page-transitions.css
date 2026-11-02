@@ -1,0 +1,86 @@
+.cube.is-transforming .cube-face {
+  background: #fff;
+  border-color: #fff;
+  color: transparent;
+  outline-color: transparent;
+  pointer-events: none;
+}
+
+.cube.is-transforming .cube-face::before {
+  border-color: transparent;
+}
+
+.cube-scene.is-shrinking {
+  animation:
+    cube-shrink 520ms cubic-bezier(0.55, 0, 1, 1) forwards,
+    cube-fade-out 150ms ease-in 370ms forwards;
+}
+
+.cube.is-reforming .cube-face,
+html.is-returning .cube-face {
+  background: #fff;
+  border-color: #fff;
+  color: transparent;
+  outline-color: transparent;
+  transition: none;
+}
+
+.cube.is-reforming .cube-face::before,
+html.is-returning .cube-face::before {
+  border-color: transparent;
+}
+
+html.is-returning #cubeScene {
+  animation: cube-grow 1000ms cubic-bezier(0.18, 0.72, 0.22, 1) both;
+}
+
+html.is-entering body:not(.cube-home) > :not(.lightbox) {
+  animation: page-fade-in 700ms 100ms ease-out both;
+}
+
+body.is-leaving > * {
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+@keyframes cube-shrink {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.008);
+  }
+}
+
+@keyframes cube-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes cube-grow {
+  from {
+    transform: scale(0.008);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cube-scene.is-shrinking,
+  html.is-returning #cubeScene,
+  html.is-entering body:not(.cube-home) > :not(.lightbox) {
+    animation-duration: 1ms !important;
+    animation-delay: 0s !important;
+    transition-duration: 1ms !important;
+  }
+}

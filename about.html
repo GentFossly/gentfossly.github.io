@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <title>About | Gent Fossly</title>
+    <meta name="description" content="About artist and designer Gent Fossly." />
+    <script>
+      if (sessionStorage.getItem('gentfossly-transition') === 'enter') {
+        document.documentElement.classList.add('is-entering');
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="section-page.css" />
+    <link rel="stylesheet" href="page-transitions.css?v=12" />
+  </head>
+  <body>
+    <main class="page">
+      <a class="page-close" href="index.html" aria-label="Return to cube" data-cube-return>×</a>
+      <h1>About</h1>
+      <div class="page-copy">
+        <p>
+          I am an artist and designer based in the northwest of England, working with kinetic
+          sculpture, flowers, and material transformations.
+        </p>
+        <p>
+          My practice explores how nature changes, opens, and returns, translating those rhythms
+          into forms that feel intimate, organic, and quietly alive.
+        </p>
+      </div>
+    </main>
+    <script src="page-transitions.js?v=9"></script>
+  </body>
+</html>
