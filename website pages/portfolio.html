@@ -15,7 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="page-transitions.css?v=12" />
+    <link rel="stylesheet" href="page-transitions.css?v=13" />
+    <link rel="stylesheet" href="site-logo.css?v=2" />
     <style>
       :root {
         --bg: #000;
@@ -255,7 +256,7 @@
       .portfolio-close {
         position: fixed;
         top: 1rem;
-        right: 1rem;
+        left: 1rem;
         z-index: 20;
         display: grid;
         place-items: center;
@@ -311,6 +312,7 @@
     </style>
   </head>
   <body>
+    <img class="site-logo" alt="Gent Fossly logo" hidden />
     <a class="portfolio-close" href="index.html" aria-label="Return to cube" data-cube-return>×</a>
 
     <main>
@@ -353,6 +355,7 @@
       </div>
     </footer>
 
+    <script src="site-logo.js?v=2"></script>
     <script>
       const galleryGrid = document.getElementById('galleryGrid');
       const lightbox = document.getElementById('lightbox');

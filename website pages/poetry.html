@@ -16,9 +16,109 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="section-page.css" />
-    <link rel="stylesheet" href="page-transitions.css?v=12" />
+    <link rel="stylesheet" href="page-transitions.css?v=13" />
+    <link rel="stylesheet" href="site-logo.css?v=2" />
+    <style>
+      .poem-card {
+        margin: 3rem 0 0;
+        padding: clamp(1.25rem, 5vw, 2.5rem);
+        border: 1px solid var(--line);
+        border-radius: 1rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+      }
+
+      .poem-card h2 {
+        margin: 0;
+        font-size: clamp(1.5rem, 5vw, 2.25rem);
+        font-weight: 500;
+        letter-spacing: -0.05em;
+        line-height: 1.3;
+      }
+
+      .poem-date {
+        margin: 0.5rem 0 2rem;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .poem-text {
+        margin: 0;
+        color: var(--ink);
+        font: inherit;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
+      .poem-editor {
+        margin-top: 4rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .poem-editor summary {
+        width: fit-content;
+        color: var(--muted);
+        cursor: pointer;
+      }
+
+      .poem-form {
+        display: grid;
+        gap: 1.25rem;
+        max-width: 620px;
+        margin-top: 1.5rem;
+      }
+
+      .poem-form label {
+        display: grid;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .poem-form input,
+      .poem-form textarea {
+        width: 100%;
+        padding: 0.8rem 0.9rem;
+        border: 1px solid var(--line);
+        border-radius: 0.5rem;
+        background: #101010;
+        color: var(--ink);
+        font: inherit;
+      }
+
+      .poem-form textarea {
+        min-height: 15rem;
+        resize: vertical;
+        white-space: pre-wrap;
+      }
+
+      .poem-form button {
+        width: fit-content;
+        padding: 0.75rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 999px;
+        background: #fff;
+        color: #000;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .poem-form button:hover,
+      .poem-form button:focus-visible {
+        background: #ddd;
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+      }
+
+      .poem-editor-status {
+        min-height: 1.8em;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+    </style>
   </head>
   <body>
+    <img class="site-logo" alt="Gent Fossly logo" hidden />
     <main class="page">
       <a class="page-close" href="index.html" aria-label="Return to cube" data-cube-return>×</a>
       <h1>Poetry</h1>
@@ -28,7 +128,40 @@
           found in nature.
         </p>
       </div>
+      <article class="poem-card" aria-live="polite" aria-busy="true">
+        <p id="poemLoading">Loading poem…</p>
+        <div id="poemContent" hidden>
+          <h2 id="poemTitle"></h2>
+          <p class="poem-date"><time id="poemDate"></time></p>
+          <pre id="poemText" class="poem-text"></pre>
+        </div>
+      </article>
+      <details class="poem-editor">
+        <summary>Create</summary>
+        <form id="poemForm" class="poem-form">
+          <label>
+            Poem title
+            <input name="title" type="text" required maxlength="200" />
+          </label>
+          <label>
+            Date created
+            <input name="date" type="date" required />
+          </label>
+          <label>
+            Poem
+            <textarea name="body" required></textarea>
+          </label>
+          <button type="submit">Download updated poems</button>
+          <p id="poemEditorStatus" class="poem-editor-status" role="status" aria-live="polite"></p>
+        </form>
+        <p class="page-copy">
+          After downloading, replace <code>poems.json</code> in the website files and publish the site
+          to make the new poem available to everyone.
+        </p>
+      </details>
     </main>
+    <script src="poetry.js?v=1"></script>
+    <script src="site-logo.js?v=2"></script>
     <script src="page-transitions.js?v=9"></script>
   </body>
 </html>

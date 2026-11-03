@@ -1,0 +1,28 @@
+.site-logo {
+  position: fixed;
+  top: 0.85rem;                        /* distance from top */
+  right: 0.85rem;                      /* distance from right */
+  z-index: 30;
+  width: clamp(9rem, 22vw, 14rem);    /* responsive logo width */
+  max-height: 5rem;                    /* maximum logo height */
+  object-fit: contain;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1000ms ease;      /* fade duration and easing */
+}
+
+.site-logo.is-visible {
+  opacity: 1;
+}
+
+.page-close,
+.portfolio-close {
+  right: auto;
+  left: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-logo {
+    transition-duration: 1ms;
+  }
+}

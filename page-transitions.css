@@ -34,11 +34,11 @@ html.is-returning #cubeScene {
   animation: cube-grow 1000ms cubic-bezier(0.18, 0.72, 0.22, 1) both;
 }
 
-html.is-entering body:not(.cube-home) > :not(.lightbox) {
+html.is-entering body:not(.cube-home) > :not(.lightbox):not(.site-logo) {
   animation: page-fade-in 700ms 100ms ease-out both;
 }
 
-body.is-leaving > * {
+body.is-leaving > *:not(.site-logo) {
   opacity: 0;
   transition: opacity 250ms ease;
 }
@@ -78,7 +78,7 @@ body.is-leaving > * {
 @media (prefers-reduced-motion: reduce) {
   .cube-scene.is-shrinking,
   html.is-returning #cubeScene,
-  html.is-entering body:not(.cube-home) > :not(.lightbox) {
+  html.is-entering body:not(.cube-home) > :not(.lightbox):not(.site-logo) {
     animation-duration: 1ms !important;
     animation-delay: 0s !important;
     transition-duration: 1ms !important;
