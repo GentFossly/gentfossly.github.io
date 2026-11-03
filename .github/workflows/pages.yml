@@ -36,7 +36,8 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site/images
-          cp index.html portfolio.html about.html contact.html process.html exhibitions.html poetry.html projects.json _site/
+          cp index.html projects.json _site/
+          cp "website pages/"*.html _site/
           cp cube-interaction.js page-transitions.js page-transitions.css section-page.css _site/
           cp -R images/. _site/images/
 
