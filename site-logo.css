@@ -1,9 +1,9 @@
 .site-logo {
   position: fixed;
   top: 0.85rem;                        /* distance from top */
-  right: 0.85rem;                      /* distance from right */
+  right: 1rem;                      /* distance from right */
   z-index: 30;
-  width: clamp(9rem, 22vw, 14rem);    /* responsive logo width */
+  width: clamp(10rem, 24vw, 16rem);    /* responsive logo width- 9, 22, 14 orig */
   max-height: 5rem;                    /* maximum logo height */
   object-fit: contain;
   opacity: 0;

@@ -4,9 +4,6 @@ const poemContent = document.getElementById('poemContent');
 const poemTitle = document.getElementById('poemTitle');
 const poemDate = document.getElementById('poemDate');
 const poemText = document.getElementById('poemText');
-const poemForm = document.getElementById('poemForm');
-const poemEditorStatus = document.getElementById('poemEditorStatus');
-let poems = null;
 
 function isValidDate(value) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
@@ -58,20 +55,19 @@ function showPoem(poem) {
   poemText.textContent = poem.body;
 }
 
-fetch(new URL('poems.json', document.baseURI), { cache: 'no-cache' })
+fetch(new URL('poetry.json', document.baseURI), { cache: 'no-cache' })
   .then(response => {
     if (!response.ok) {
-      throw new Error(`Poem data request failed with status ${response.status}.`);
+      throw new Error(`Poetry data request failed with status ${response.status}.`);
     }
     return response.json();
   })
   .then(loadedPoems => {
     if (!isPoemList(loadedPoems)) {
-      throw new Error('Poem data must be an array of poems with title, date, and body fields.');
+      throw new Error('Poetry data must be an array of poems with title, date, and body fields.');
     }
 
-    poems = loadedPoems;
-    const poem = getDailyPoem(poems);
+    const poem = getDailyPoem(loadedPoems);
     poemLoading.textContent = poem
       ? 'Loading poem…'
       : 'No poems have been published yet.';
@@ -83,41 +79,5 @@ fetch(new URL('poems.json', document.baseURI), { cache: 'no-cache' })
   .catch(error => {
     poemLoading.textContent = 'Poems could not be loaded. Please try again later.';
     poemCard.setAttribute('aria-busy', 'false');
-    poemEditorStatus.textContent = 'Poem data could not be loaded, so a new poems file cannot be created.';
     console.error('Unable to load poems.', error);
   });
-
-poemForm.addEventListener('submit', event => {
-  event.preventDefault();
-
-  if (poems === null) {
-    poemEditorStatus.textContent = 'Wait for the poem data to load before adding a poem.';
-    return;
-  }
-
-  const formData = new FormData(poemForm);
-  const title = String(formData.get('title')).trim();
-  const date = String(formData.get('date'));
-  const body = String(formData.get('body'));
-  if (!title || !date || !body.trim()) {
-    poemEditorStatus.textContent = 'Enter a title, creation date, and poem before downloading.';
-    return;
-  }
-
-  poems.push({ title, date, body });
-
-  const file = new Blob([`${JSON.stringify(poems, null, 2)}\n`], {
-    type: 'application/json'
-  });
-  const downloadUrl = URL.createObjectURL(file);
-  const downloadLink = document.createElement('a');
-  downloadLink.href = downloadUrl;
-  downloadLink.download = 'poems.json';
-  document.body.append(downloadLink);
-  downloadLink.click();
-  downloadLink.remove();
-  window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
-
-  poemForm.reset();
-  poemEditorStatus.textContent = 'Downloaded poems.json. Replace the website file and publish to share your poem.';
-});

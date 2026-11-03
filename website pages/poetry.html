@@ -49,72 +49,6 @@
         overflow-wrap: anywhere;
       }
 
-      .poem-editor {
-        margin-top: 4rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid var(--line);
-      }
-
-      .poem-editor summary {
-        width: fit-content;
-        color: var(--muted);
-        cursor: pointer;
-      }
-
-      .poem-form {
-        display: grid;
-        gap: 1.25rem;
-        max-width: 620px;
-        margin-top: 1.5rem;
-      }
-
-      .poem-form label {
-        display: grid;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-      }
-
-      .poem-form input,
-      .poem-form textarea {
-        width: 100%;
-        padding: 0.8rem 0.9rem;
-        border: 1px solid var(--line);
-        border-radius: 0.5rem;
-        background: #101010;
-        color: var(--ink);
-        font: inherit;
-      }
-
-      .poem-form textarea {
-        min-height: 15rem;
-        resize: vertical;
-        white-space: pre-wrap;
-      }
-
-      .poem-form button {
-        width: fit-content;
-        padding: 0.75rem 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        border-radius: 999px;
-        background: #fff;
-        color: #000;
-        font: inherit;
-        cursor: pointer;
-      }
-
-      .poem-form button:hover,
-      .poem-form button:focus-visible {
-        background: #ddd;
-        outline: 2px solid #fff;
-        outline-offset: 3px;
-      }
-
-      .poem-editor-status {
-        min-height: 1.8em;
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.85rem;
-      }
     </style>
   </head>
   <body>
@@ -124,8 +58,8 @@
       <h1>Poetry</h1>
       <div class="page-copy">
         <p>
-          Words and fragments inspired by movement, living forms, and the quiet transformations
-          found in nature.
+          Poems primarily rhymed-up late at night.
+          Different poem shown tomorrow.
         </p>
       </div>
       <article class="poem-card" aria-live="polite" aria-busy="true">
@@ -136,31 +70,8 @@
           <pre id="poemText" class="poem-text"></pre>
         </div>
       </article>
-      <details class="poem-editor">
-        <summary>Create</summary>
-        <form id="poemForm" class="poem-form">
-          <label>
-            Poem title
-            <input name="title" type="text" required maxlength="200" />
-          </label>
-          <label>
-            Date created
-            <input name="date" type="date" required />
-          </label>
-          <label>
-            Poem
-            <textarea name="body" required></textarea>
-          </label>
-          <button type="submit">Download updated poems</button>
-          <p id="poemEditorStatus" class="poem-editor-status" role="status" aria-live="polite"></p>
-        </form>
-        <p class="page-copy">
-          After downloading, replace <code>poems.json</code> in the website files and publish the site
-          to make the new poem available to everyone.
-        </p>
-      </details>
     </main>
-    <script src="poetry.js?v=1"></script>
+    <script src="poetry.js?v=2"></script>
     <script src="site-logo.js?v=2"></script>
     <script src="page-transitions.js?v=9"></script>
   </body>

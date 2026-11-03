@@ -127,3 +127,18 @@ test('writes a parseable JSON manifest to the requested output path', async (t) 
   assert.deepEqual(writtenManifest, projects);
   assert.equal(writtenManifest.length, 1);
 });
+
+test('does not modify the separate poetry file when regenerating the project manifest', async (t) => {
+  const { root, imagesDirectory } = await createFixture(t);
+  const projectDirectory = path.join(imagesDirectory, 'A Project');
+  const outputPath = path.join(root, 'projects.json');
+  const poetryPath = path.join(root, 'poetry.json');
+  const poetry = [{ title: 'Wanderers', date: '2026-09-07', body: 'A poem.' }];
+  await mkdir(projectDirectory);
+  await writeFile(path.join(projectDirectory, 'cover.png'), '');
+  await writeFile(poetryPath, JSON.stringify(poetry));
+
+  await generateProjects({ imagesDirectory, outputPath });
+
+  assert.deepEqual(JSON.parse(await readFile(poetryPath, 'utf8')), poetry);
+});

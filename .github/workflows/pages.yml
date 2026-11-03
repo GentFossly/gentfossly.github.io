@@ -37,7 +37,7 @@ jobs:
         run: |
           mkdir -p _site/images
           node scripts/generate-logos.mjs
-          cp index.html projects.json poems.json logos.json poetry.js _site/
+          cp index.html projects.json poetry.json logos.json poetry.js _site/
           cp -R "website pages" _site/
           cp cube-interaction.js page-transitions.js page-transitions.css section-page.css site-logo.css site-logo.js _site/
           cp -R images/. _site/images/

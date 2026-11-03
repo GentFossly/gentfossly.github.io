@@ -65,3 +65,17 @@ node --test scripts/generate-projects.test.mjs
 Commit and push the new project folder to the `main` branch. The GitHub Actions workflow tests the generator, rebuilds `projects.json`, and deploys the site. Check the repository's **Actions** tab; the **Build and deploy portfolio** run should complete successfully. A failed build reports issues such as a missing cover. Fix the folder, commit, and push again.
 
 The committed `projects.json` is a useful local preview snapshot. GitHub Actions regenerates it on every deployment, so the deployed portfolio reflects the folders in that push even if the checked-in snapshot was not refreshed manually.
+
+## Adding poems
+
+Poems are stored in the root-level `poetry.json` file, separate from the generated artwork list. Add an object with a title, a creation date in `YYYY-MM-DD` format, and the poem body. Keep line breaks in the JSON string as `\n`, for example:
+
+```json
+{
+  "title": "Wanderers",
+  "date": "2026-09-07",
+  "body": "First line\nSecond line"
+}
+```
+
+Add the object to the JSON array in `poetry.json` (keeping commas between entries). Commit the updated file to publish new or edited poems; the public poetry page is display-only. Regenerating `projects.json` will not modify `poetry.json`.
