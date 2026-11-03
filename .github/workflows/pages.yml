@@ -28,7 +28,7 @@ jobs:
           node-version: 20
 
       - name: Test project manifest generator
-        run: node --test scripts/generate-projects.test.mjs
+        run: node --test scripts/generate-projects.test.mjs scripts/generate-logos.test.mjs
 
       - name: Generate project manifest
         run: node scripts/generate-projects.mjs
