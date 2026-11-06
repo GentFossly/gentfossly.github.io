@@ -68,7 +68,7 @@ The committed `projects.json` is a useful local preview snapshot. GitHub Actions
 
 ## Adding poems
 
-Poems are stored in the root-level `poetry.json` file, separate from the generated artwork list. Add an object with a title, a creation date in `YYYY-MM-DD` format, and the poem body. Keep line breaks in the JSON string as `\n`, for example:
+Poems are stored in the root-level `poetry.json` file, separate from the generated artwork list. Add an object with a title, a creation date in `YYYY`, `YYYY-MM`, or `YYYY-MM-DD` format, and the poem body. The page displays only the date parts you provide, such as `2026` or `January 2026`. Keep line breaks in the JSON string as `\n`, for example:
 
 ```json
 {

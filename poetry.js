@@ -6,12 +6,18 @@ const poemDate = document.getElementById('poemDate');
 const poemText = document.getElementById('poemText');
 
 function isValidDate(value) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+  if (!/^\d{4}(?:-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12]\d|3[01]))?)?$/.test(value)) {
     return false;
   }
 
-  const date = new Date(`${value}T00:00:00Z`);
-  return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value;
+  const normalizedDate = value.length === 4
+    ? `${value}-01-01`
+    : value.length === 7
+      ? `${value}-01`
+      : value;
+  const date = new Date(`${normalizedDate}T00:00:00Z`);
+  return Number.isFinite(date.getTime()) &&
+    date.toISOString().slice(0, normalizedDate.length) === normalizedDate;
 }
 
 function isPoemList(value) {
@@ -46,12 +52,23 @@ function showPoem(poem) {
   poemContent.hidden = false;
   poemTitle.textContent = poem.title;
   poemDate.dateTime = poem.date;
-  poemDate.textContent = new Date(`${poem.date}T00:00:00Z`).toLocaleDateString(undefined, {
+  const normalizedDate = poem.date.length === 4
+    ? `${poem.date}-01-01`
+    : poem.date.length === 7
+      ? `${poem.date}-01`
+      : poem.date;
+  const dateOptions = {
     year: 'numeric',
-    month: 'long',
-    day: 'numeric',
     timeZone: 'UTC'
-  });
+  };
+  if (poem.date.length >= 7) {
+    dateOptions.month = 'long';
+  }
+  if (poem.date.length === 10) {
+    dateOptions.day = 'numeric';
+  }
+  poemDate.textContent = new Date(`${normalizedDate}T00:00:00Z`)
+    .toLocaleDateString(undefined, dateOptions);
   poemText.textContent = poem.body;
 }
 
